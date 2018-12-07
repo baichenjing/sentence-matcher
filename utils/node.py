@@ -22,6 +22,9 @@ class Node(object):
         if len(self.children):
             return '%s{%s}' % (self.data['type'], ', '.join([str(s) for s in self.children]))
         return self.data['type']
+    
+    def __iter__(self):
+        return iter(self.children)
 
     def generate(self, entity_map, result={}):
         result = {
