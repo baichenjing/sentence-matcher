@@ -1,0 +1,6 @@
+{
+  "query": "compare 的 trend between KEY2 and KEY1",
+  "entities": {
+    "5bfe132cc4952f342f394a48": ["KEY2", "KEY1"]
+  }
+}

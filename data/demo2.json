@@ -1,0 +1,8 @@
+{
+  "query": "查一些关于KEY2方面的ORG1的PER1的出版物",
+  "entities": {
+    "5bfe132cc4952f342f394a48": ["KEY2"],
+    "5bfe137dc4952f342f394a49": ["ORG1"],
+    "5bfe127cc4952f342f394a47": ["PER1"]
+  }
+}

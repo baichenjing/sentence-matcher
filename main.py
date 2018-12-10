@@ -2,7 +2,7 @@ import json
 import codecs
 import argparse
 
-from matcher.matcher import Matcher
+from matcher import Matcher
 from numpy import random
 
 from utils.hierarchy import hierarchy, link_entity, str_stat
@@ -23,4 +23,5 @@ with codecs.open(args.file, 'r', encoding='utf-8') as fin:
       query = json.load(qin)
       matcher = Matcher(root, query['entities'])
       matcher.match(query['query'])
-      matcher.print_match(matcher.root)
+      print(matcher.classify(matcher.root))
+      # matcher.print_match(matcher.root)

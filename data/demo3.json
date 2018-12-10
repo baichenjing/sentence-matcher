@@ -1,0 +1,10 @@
+{
+  "query": "which are ORG1 DATE1 PER1 's CON2 papers related to KEY2 from done at DATE1 published on CON2",
+  "entities": {
+    "5bfe132cc4952f342f394a48": ["KEY2"],
+    "5bfe137dc4952f342f394a49": ["ORG1"],
+    "5bfe0ef9c4952f342f394a44": ["DATE1"],
+    "5bfe111cc4952f342f394a45": ["CON2"],
+    "5bfe127cc4952f342f394a47": ["PER1"]
+  }
+}

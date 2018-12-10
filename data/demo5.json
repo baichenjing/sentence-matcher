@@ -1,0 +1,7 @@
+{
+  "query": "关于KEY2方向的来自ORG1的female的美国的研究员",
+  "entities": {
+    "5bfe132cc4952f342f394a48": ["KEY2"],
+    "5bfe137dc4952f342f394a49": ["ORG1"]
+  }
+}

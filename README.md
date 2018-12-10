@@ -1,9 +1,10 @@
-# sentence-matcher 0.1.0
+# sentence-matcher 0.2.0
 根据语法规则匹配句子
 > 语法规则及交互树详见 [interactive-syntax-tree](https://wzyjerry.github.io/interactive-syntax-tree/)
 ---
 ## 输入
-语法树，通过-r参数传入，格式如下:
+语法树，通过-f参数传入，格式如下:
+``` json
 {
     "type": "root",
     "children": [{
@@ -14,30 +15,31 @@
     },
     ...]
 }
-待匹配的句子，已进行过NER，通过-i参数传入，每行一个Token：
-type    content
-1. text content
-2. entity entity_id
+```
+待匹配的句子，已进行过NER，通过-q参数传入，格式如下：
+``` json
+{
+  "query": "which are ORG1 DATE1 PER1 's CON2 papers related to KEY2 from done at DATE1 published on CON2",
+  "entities": {
+    "5bfe132cc4952f342f394a48": ["KEY2"],
+    "5bfe137dc4952f342f394a49": ["ORG1"],
+    "5bfe0ef9c4952f342f394a44": ["DATE1"],
+    "5bfe111cc4952f342f394a45": ["CON2"],
+    "5bfe127cc4952f342f394a47": ["PER1"]
+  }
+}
+```
 ---
-## 输出规则
--c: 生成模拟句子的数量，默认值1000
--w：词级别输出，%word\t%entity\n
--s：句级别输出，%intent\t%sentence
+## 输出
+匹配的意图
 ---
-## 模拟步骤
-1. 编译语法树（编译错误给出提示，结束）
-    1. 删除holder节点及其子节点
-    2. 对于每个intent进行编译，检查每个节点类型，对于每种类型的节点，补全初始值，删除无效字段
-    3. 对于每个content->isEntity节点，汇总entityID生成 **【实体集合】**
-    4. 删除后代中不包含content节点的节点
-    5. 对需要权重采样的节点抽取后代weight字段生成对应数组
-    6. 先序标记节点id（根节点标记为0）
-    7. 给出统计信息：各类节点总数，实体集合，content节点上的tag总数
-    8. 检查文件集合1中文件是否存在
-2. （调试模式）输出编译后的语法树规则
-3. （调试模式）将调试输出模板追加到输出模板后
-3. 将规则转化为模拟器树节点
-4. 从根节点用generator模拟n次，沿输出链输出结果
+## 算法步骤
+1. 编译语法树
+2. 由绿色节点content、NER结果构造AC自动机
+3. 由节点dropout规则生成节点nullable属性
+4. 对query进行匹配，得到绿色节点的匹配区间
+5. 在树上根据规则进行线段合并
 
 ## 示例
-python main.py -f data/input.json -c 10 -w data/out/word.txt -s data/out/sent.txt
+python main.py -f data/rule.json -q data/demo1.json
+输出：搜文章

@@ -1,6 +1,9 @@
 {
-  "query": "检索一组与机器学习相关的期刊",
+  "query": "are there any ORG1 DATE2 's CON2 papers that focus on KEY1 by ORG1",
   "entities": {
-    "5bfe132cc4952f342f394a48": ["机器学习"]
+    "5bfe132cc4952f342f394a48": ["KEY1"],
+    "5bfe137dc4952f342f394a49": ["ORG1"],
+    "5bfe0ef9c4952f342f394a44": ["DATE2"],
+    "5bfe111cc4952f342f394a45": ["CON2"]
   }
 }
