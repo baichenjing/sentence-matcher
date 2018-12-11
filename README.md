@@ -1,4 +1,4 @@
-# sentence-matcher 0.2.0
+# sentence-matcher 0.3.0
 根据语法规则匹配句子
 > 语法规则及交互树详见 [interactive-syntax-tree](https://wzyjerry.github.io/interactive-syntax-tree/)
 ---
@@ -31,7 +31,7 @@
 ```
 ---
 ## 输出
-匹配的意图
+intent | delta | query | match query | remove node index
 
 ---
 ## 算法步骤
@@ -42,5 +42,13 @@
 5. 在树上根据规则进行线段合并
 
 ## 示例
-python main.py -f data/rule.json -q data/demo1.json
-输出：搜文章
+```
+python main.py -f data/rule.json -q data/del_demo/demo4.json
+
+输出：
+intent: 搜文章
+delta: 3
+query: 张宇韬是谁
+match query: (张宇韬)是谁
+remove node index: (151,)
+```

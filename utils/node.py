@@ -25,6 +25,9 @@ class Node(object):
     
     def __iter__(self):
         return iter(self.children)
+    
+    def __len__(self):
+        return len(self.children)
 
     def generate(self, entity_map, result={}):
         result = {

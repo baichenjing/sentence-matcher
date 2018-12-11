@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "args": ["-fdata/rule.json", "-qdata/demo1.json"]
+      "args": ["-fdata/rule.json", "-qdata/del_demo/demo5.json"]
     },
     {
       "name": "Python: Attach",
